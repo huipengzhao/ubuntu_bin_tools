@@ -1,0 +1,36 @@
+
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:[\[\033[01;34m\]\w\[\033[00m\]]\$ '
+
+alias lh='ls -lh'
+alias l1='ls -1'
+alias rm='rm -i'
+alias ts='date +%m%d%H%M'
+
+PATH=/work/bin:/work/bin/tools:/work/bin/tools/env:$PATH
+PATH=/work/bin/arm-eabi-4.8/bin:$PATH
+
+export USE_CCACHE=1
+export CCACHE_DIR=/work/.ccache
+
+alias adbw='adb wait-for-device'
+
+rm -rf '/data/$RECYCLE.BIN' '/data/System Volume Information'
+
+mclean() {
+	[ -z "$OUT" ] && echo "Env OUT is not set!" && return 1
+	[ ! -d "$OUT" ] && echo "$OUT is not a dir!" && return 1
+	DIR=`pwd`
+	cd "$OUT"
+	rm -rfv root/ system/ data/ vendor/ cache/ *.img kernel
+	cd $DIR
+}
+
+mclean2() {
+	[ -z "$OUT" ] && echo "Env OUT is not set!" && return 1
+	[ ! -d "$OUT" ] && echo "$OUT is not a dir!" && return 1
+	DIR=`pwd`
+	cd "$OUT"
+	rm -rfv root/ system/ data/ vendor/ cache/ *.img kernel
+	rm -rf obj/FAKE
+	cd $DIR
+}
