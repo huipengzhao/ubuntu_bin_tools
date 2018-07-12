@@ -7,7 +7,7 @@ REPO_URL = os.environ.get('REPO_URL', None)
 #REPO_URL = 'https://gerrit-googlesource.lug.ustc.edu.cn/git-repo'
 #REPO_URL = 'https://gerrit-google.tuna.tsinghua.edu.cn/git-repo'
 #REPO_URL = 'git://192.168.9.83/tools/repo.git'
-REPO_URL = 'file:///work/database/android/mirror/google/aosp/git-repo.git'
+REPO_URL = 'file:///work/storage/android/mirror/google/aosp/git-repo.git'
 #REPO_URL = 'https://aosp.tuna.tsinghua.edu.cn/git-repo.git'
 
 if not REPO_URL:
